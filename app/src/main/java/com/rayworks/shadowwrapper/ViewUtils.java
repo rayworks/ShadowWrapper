@@ -13,24 +13,31 @@ import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 
-import static android.support.v4.view.ViewCompat.LAYER_TYPE_SOFTWARE;
-
 public class ViewUtils {
 
-    public static Drawable generateBackgroundWithShadow(View view, @ColorRes int backgroundColor,
-                                                        @DimenRes int cornerRadius,
-                                                        @ColorRes int shadowColor,
-                                                        int elevationValue,
-                                                        int shadowGravity) {
+    public static Drawable generateBackgroundWithShadow(
+            View view,
+            @ColorRes int backgroundColor,
+            @DimenRes int cornerRadius,
+            @ColorRes int shadowColor,
+            int elevationValue,
+            int shadowGravity) {
         Resources resources = view.getContext().getResources();
 
         float cornerRadiusValue = resources.getDimension(cornerRadius);
         int shadowColorValue = ContextCompat.getColor(view.getContext(), shadowColor);
         int backgroundColorValue = ContextCompat.getColor(view.getContext(), backgroundColor);
 
-        float[] outerRadius = {cornerRadiusValue, cornerRadiusValue, cornerRadiusValue,
-                cornerRadiusValue, cornerRadiusValue, cornerRadiusValue, cornerRadiusValue,
-                cornerRadiusValue};
+        float[] outerRadius = {
+            cornerRadiusValue,
+            cornerRadiusValue,
+            cornerRadiusValue,
+            cornerRadiusValue,
+            cornerRadiusValue,
+            cornerRadiusValue,
+            cornerRadiusValue,
+            cornerRadiusValue
+        };
 
         Rect shapeDrawablePadding = new Rect();
         shapeDrawablePadding.left = elevationValue;
@@ -63,17 +70,16 @@ public class ViewUtils {
         paint.setColor(backgroundColorValue);
         paint.setShadowLayer(elevationValue /*/3*/, 0, DY, shadowColorValue);
 
-        view.setLayerType(LAYER_TYPE_SOFTWARE, paint);
+        view.setLayerType(View.LAYER_TYPE_SOFTWARE, paint);
 
         shapeDrawable.setShape(new RoundRectShape(outerRadius, null, null));
 
         // merge it to LayerDrawable and set Inset to drawable for not seeing cutting shadow
-        LayerDrawable drawable = new LayerDrawable(new Drawable[]{shapeDrawable});
-        int vertical = elevationValue/* * 2*/;
+        LayerDrawable drawable = new LayerDrawable(new Drawable[] {shapeDrawable});
+        int vertical = elevationValue /* * 2*/;
         int horizontal = elevationValue;
         drawable.setLayerInset(0, horizontal, vertical, horizontal, vertical);
 
         return drawable;
-
     }
 }

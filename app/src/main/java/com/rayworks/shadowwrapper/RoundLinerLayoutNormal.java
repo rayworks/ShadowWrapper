@@ -22,8 +22,12 @@ public class RoundLinerLayoutNormal extends LinearLayout {
     public RoundLinerLayoutNormal(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         if (attrs != null) {
-            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.RoundLinerLayoutNormal);
-            currElevation = ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_elevation, context.getResources().getDimensionPixelSize(R.dimen.elevation));
+            TypedArray ta =
+                    context.obtainStyledAttributes(attrs, R.styleable.RoundLinerLayoutNormal);
+            currElevation =
+                    ta.getDimensionPixelSize(
+                            R.styleable.RoundLinerLayoutNormal_rll_elevation,
+                            context.getResources().getDimensionPixelSize(R.dimen.elevation));
             ta.recycle();
         }
 
@@ -31,7 +35,13 @@ public class RoundLinerLayoutNormal extends LinearLayout {
     }
 
     private void initBackground() {
-        setBackground(ViewUtils.generateBackgroundWithShadow(this, android.R.color.white,
-                R.dimen.radius_corner, R.color.shadowColor, currElevation, Gravity.CENTER));
+        setBackground(
+                ViewUtils.generateBackgroundWithShadow(
+                        this,
+                        android.R.color.white,
+                        R.dimen.radius_corner,
+                        R.color.shadowColor,
+                        currElevation,
+                        Gravity.CENTER));
     }
 }
