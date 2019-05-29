@@ -2,6 +2,9 @@
 
 A wrapper for implementing View's shadow effect.
 
+# Screenshot
+![](/images/screenshot.jpg)
+
 # [WIP]
 Support easily setting View's shadow attributes including shadow’s color and direction.
 
