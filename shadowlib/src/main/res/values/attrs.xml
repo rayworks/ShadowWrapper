@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundLinerLayoutNormal">
+        <attr name="rll_elevation" format="dimension"/>
+        <attr name="rll_shadow_radius" format="dimension"/>
+        <attr name="rll_shadow_color" format="color"/>
+        <attr name="rll_shadow_bkg_color" format="color"/>
+        <attr name="rll_shadow_dx" format="dimension"/>
+        <attr name="rll_shadow_dy" format="dimension"/>
+        <attr name="rll_inset_horizontal" format="dimension"/>
+        <attr name="rll_inset_vertical" format="dimension"/>
+    </declare-styleable>
+</resources>

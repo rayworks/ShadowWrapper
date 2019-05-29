@@ -2,11 +2,12 @@ package com.rayworks.shadowwrapper
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
-
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +20,13 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        layout_light.updateShadowBackground(
+            shadowColorValue = resources.getColor(android.R.color.holo_blue_light),
+            shadowGravity = Gravity.BOTTOM,
+            dy = (layout_light.currElevation / 2).toFloat(),
+            insetVertical = layout_light.currElevation * 2
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

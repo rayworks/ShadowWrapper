@@ -1,11 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.31'
+    ext {
+        kotlin_version = '1.3.31'
+        ktlint_version = '0.28.0'
+    }
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.0'
@@ -15,14 +18,25 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.diffplug.gradle.spotless" version "3.13.0"
+}
+
 allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap' }
     }
 }
 
-task clean(type: Delete) {
+spotless {
+    kotlin {
+        target "**/*.kt"
+        ktlint(ktlint_version)
+    }
+}
+
+task cleanBuildDir(type: Delete) {
     delete rootProject.buildDir
 }
