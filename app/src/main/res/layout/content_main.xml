@@ -20,7 +20,8 @@
 
     <com.rayworks.shadowlib.RoundLinerLayoutNormal
             app:rll_elevation="8dp"
-            app:rll_inset_horizontal="8dp"
+            app:rll_inset_left="8dp"
+            app:rll_inset_right="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -38,7 +39,8 @@
     <com.rayworks.shadowlib.RoundLinerLayoutNormal
             android:layout_width="match_parent"
             android:layout_marginTop="-8dp"
-            app:rll_inset_horizontal="8dp"
+            app:rll_inset_left="8dp"
+            app:rll_inset_right="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             app:rll_elevation="8dp"
@@ -52,5 +54,25 @@
                 android:layout_height="wrap_content"/>
 
     </com.rayworks.shadowlib.RoundLinerLayoutNormal>
+
+    <!--
+    app:contentPadding="8dp"
+    app:cardUseCompatPadding="false"
+    -->
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="6dp"
+            android:layout_margin="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@android:color/white"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:layout_height="200dp">
+        <TextView
+                android:text="@string/text_cardview"
+                android:layout_margin="8dp"
+                android:textColor="@android:color/holo_blue_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

@@ -7,7 +7,9 @@
         <attr name="rll_shadow_bkg_color" format="color"/>
         <attr name="rll_shadow_dx" format="dimension"/>
         <attr name="rll_shadow_dy" format="dimension"/>
-        <attr name="rll_inset_horizontal" format="dimension"/>
-        <attr name="rll_inset_vertical" format="dimension"/>
+        <attr name="rll_inset_left" format="dimension"/>
+        <attr name="rll_inset_top" format="dimension"/>
+        <attr name="rll_inset_right" format="dimension"/>
+        <attr name="rll_inset_bottom" format="dimension"/>
     </declare-styleable>
 </resources>

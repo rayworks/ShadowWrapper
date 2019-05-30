@@ -17,8 +17,10 @@ object ViewUtils {
         shadowColorValue: Int,
         elevationValue: Int,
         shadowGravity: Int,
-        insetHorizontal: Int = elevationValue,
-        insetVertical: Int = elevationValue,
+        insetLeft: Int = elevationValue,
+        insetTop: Int = elevationValue,
+        insetRight: Int = elevationValue,
+        insetBottom: Int = elevationValue,
         dx: Float = 0F,
         dy: Float = 0F
 
@@ -70,7 +72,7 @@ object ViewUtils {
 
         // merge it to LayerDrawable and set Inset to drawable for not seeing cutting shadow
         val drawable = LayerDrawable(arrayOf<Drawable>(shapeDrawable))
-        drawable.setLayerInset(0, insetHorizontal, insetVertical, insetHorizontal, insetVertical)
+        drawable.setLayerInset(0, insetLeft, insetTop, insetRight, insetBottom)
 
         return drawable
     }

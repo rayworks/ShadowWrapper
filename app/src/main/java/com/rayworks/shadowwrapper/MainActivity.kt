@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             shadowColorValue = resources.getColor(android.R.color.holo_blue_light),
             shadowGravity = Gravity.BOTTOM,
             dy = (layout_light.currElevation / 2).toFloat(),
-            insetVertical = layout_light.currElevation * 2
+            insetBottomValue = layout_light.currElevation * 2
         )
     }
 

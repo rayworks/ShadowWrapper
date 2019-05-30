@@ -20,8 +20,10 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
     private var shadowBkgColor: Int = Color.WHITE
     private var shadowGravity: Int = Gravity.CENTER
 
-    private var insetHorizontal: Int = 0
-    private var insetVertical: Int = 0
+    private var insetLeft: Int = 0
+    private var insetTop: Int = 0
+    private var insetRight: Int = 0
+    private var insetBottom: Int = 0
 
     private var dx: Float = 0F
     private var dy: Float = 0F
@@ -48,10 +50,14 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
                 Color.WHITE
             )
 
-            insetHorizontal =
-                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_horizontal, currElevation)
-            insetVertical =
-                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_vertical, currElevation)
+            insetLeft =
+                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_left, currElevation)
+            insetTop =
+                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_top, currElevation)
+            insetRight =
+                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_right, currElevation)
+            insetBottom =
+                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_bottom, currElevation)
 
             dx = ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_shadow_dx, 0).toFloat()
             dy = ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_shadow_dy, 0).toFloat()
@@ -70,9 +76,7 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
             shadowColor,
             currElevation,
             shadowGravity,
-            insetHorizontal,
-            insetVertical,
-            dx, dy
+            insetLeft, insetTop, insetRight, insetBottom, dx, dy
         )
     }
 
@@ -84,8 +88,10 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
      * @param shadowColorValue color of shadow
      * @param elevationValue shadow elevation
      * @param shadowGravity gravity of shadow, see [View's Gravity](android.view.Gravity)
-     * @param insetHorizontal horizontal inset for shadow drawable
-     * @param insetVertical vertical inset for shadow drawable
+     * @param insetLeftValue number of pixels to add to the left bound of shadow drawable
+     * @param insetTopValue number of pixels to add to the top bound of shadow drawable
+     * @param insetRightValue number of pixels to add to the right bound of shadow drawable
+     * @param insetBottomValue number of pixels to add to the bottom bound of shadow drawable
      * @param dx shadow layer dx
      * @param dy shadow layer dy
      */
@@ -95,8 +101,10 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
         shadowColorValue: Int = shadowColor,
         elevationValue: Int = currElevation,
         shadowGravity: Int = this.shadowGravity,
-        insetHorizontal: Int = this.insetHorizontal,
-        insetVertical: Int = this.insetVertical,
+        insetLeftValue: Int = this.insetLeft,
+        insetTopValue: Int = this.insetTop,
+        insetRightValue: Int = this.insetRight,
+        insetBottomValue: Int = this.insetBottom,
         dx: Float = this.dx,
         dy: Float = this.dy
     ) {
@@ -106,8 +114,10 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
         this.shadowColor = shadowColorValue
         this.currElevation = elevationValue
         this.shadowGravity = shadowGravity
-        this.insetHorizontal = insetHorizontal
-        this.insetVertical = insetVertical
+        this.insetLeft = insetLeftValue
+        this.insetTop = insetTopValue
+        this.insetRight = insetRightValue
+        this.insetBottom = insetBottomValue
         this.dx = dx
         this.dy = dy
 
