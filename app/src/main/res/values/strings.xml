@@ -2,6 +2,6 @@
     <string name="app_name">ShadowWrapper</string>
     <string name="action_settings">Settings</string>
     <string name="text_center">Shadow Gravity : Center</string>
-    <string name="text_bottom">Shadow Gravity : Bottom (updated)</string>
+    <string name="text_bottom">Shadow Gravity : Bottom \n(click to change shadow color)</string>
     <string name="text_cardview">CardView (radius 6dp | elevation 8dp)</string>
 </resources>

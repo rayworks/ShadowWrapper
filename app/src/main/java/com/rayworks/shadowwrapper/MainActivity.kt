@@ -11,22 +11,40 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var colors: ArrayList<Int>
+
+    private var index = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        colors = arrayListOf(
+            resources.getColor(android.R.color.holo_blue_light),
+            resources.getColor(android.R.color.holo_green_light),
+            resources.getColor(android.R.color.holo_red_light)
+        )
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
+        val insetBottomValue = layout_light.currElevation * 2
+        val insetHorizontalValue = layout_light.currElevation / 2
         layout_light.updateShadowBackground(
-            shadowColorValue = resources.getColor(android.R.color.holo_blue_light),
+            shadowColorValue = colors[0],
             shadowGravity = Gravity.BOTTOM,
             dy = (layout_light.currElevation / 2).toFloat(),
-            insetBottomValue = layout_light.currElevation * 2
+            insetBottomValue = insetBottomValue
         )
+
+        layout_light.setOnClickListener {
+            ++index
+            index %= colors.size
+            layout_light.updateShadowBackground(shadowColorValue = colors[index])
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
