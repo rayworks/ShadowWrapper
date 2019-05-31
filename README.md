@@ -11,7 +11,7 @@ Inspired by the Medium article [Take control of view’s shadow — Android]
 ### Gradle
 ```groovy
 dependencies {
-    implementation com.rayworks.shadowlib:shadowlib:0.1.1'
+    implementation 'com.rayworks.shadowlib:shadowlib:0.1.1'
 }
 ```
 
