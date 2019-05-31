@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RoundRectShape
+import android.os.Build
 import android.view.Gravity
 import android.view.View
 
@@ -66,8 +67,14 @@ object ViewUtils {
         paint.color = backgroundColorValue
         paint.setShadowLayer(elevationValue.toFloat(), dx, dy, shadowColorValue)
 
-        view.setLayerType(View.LAYER_TYPE_SOFTWARE, paint)
+        // https://developer.android.com/guide/topics/graphics/hardware-accel
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+            view.setLayerType(View.LAYER_TYPE_HARDWARE, paint)
+        else
+            view.setLayerType(View.LAYER_TYPE_SOFTWARE, paint)
 
+        // NB: Given that the RoundRectShape will be set as the view's background, you can only change its
+        // dimension via the host view
         shapeDrawable.shape = RoundRectShape(outerRadius, null, null)
 
         // merge it to LayerDrawable and set Inset to drawable for not seeing cutting shadow
