@@ -10,8 +10,32 @@ import android.view.Gravity
 import android.view.View
 
 object ViewUtils {
+    /***
+     * Applies the shadow effect
+     */
+    fun View.applyShadow(
+        backgroundColorValue: Int,
+        cornerRadiusValue: Float,
+        shadowColorValue: Int,
+        elevationValue: Int,
+        shadowGravity: Int,
+        insetLeft: Int = elevationValue,
+        insetTop: Int = elevationValue,
+        insetRight: Int = elevationValue,
+        insetBottom: Int = elevationValue,
+        dx: Float = 0F,
+        dy: Float = 0F
+    ) {
+        background = generateBackgroundWithShadow(
+            this, backgroundColorValue, cornerRadiusValue, shadowColorValue, elevationValue,
+            shadowGravity, insetLeft, insetTop, insetRight, insetBottom, dx, dy
+        )
+    }
 
-    fun generateBackgroundWithShadow(
+    /***
+     * Generates a shadow drawable
+     */
+    private fun generateBackgroundWithShadow(
         view: View,
         backgroundColorValue: Int,
         cornerRadiusValue: Float,
@@ -26,16 +50,7 @@ object ViewUtils {
         dy: Float = 0F
 
     ): Drawable {
-        val outerRadius = floatArrayOf(
-            cornerRadiusValue,
-            cornerRadiusValue,
-            cornerRadiusValue,
-            cornerRadiusValue,
-            cornerRadiusValue,
-            cornerRadiusValue,
-            cornerRadiusValue,
-            cornerRadiusValue
-        )
+        val outerRadius = FloatArray(8) { cornerRadiusValue }
 
         val shapeDrawablePadding = Rect()
         shapeDrawablePadding.left = elevationValue

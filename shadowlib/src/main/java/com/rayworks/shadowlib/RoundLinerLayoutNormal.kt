@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.LinearLayout
+import com.rayworks.shadowlib.ViewUtils.applyShadow
 
 class RoundLinerLayoutNormal @JvmOverloads constructor(
     context: Context,
@@ -51,16 +52,30 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
             )
 
             insetLeft =
-                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_left, currElevation)
+                ta.getDimensionPixelSize(
+                    R.styleable.RoundLinerLayoutNormal_rll_inset_left,
+                    currElevation
+                )
             insetTop =
-                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_top, currElevation)
+                ta.getDimensionPixelSize(
+                    R.styleable.RoundLinerLayoutNormal_rll_inset_top,
+                    currElevation
+                )
             insetRight =
-                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_right, currElevation)
+                ta.getDimensionPixelSize(
+                    R.styleable.RoundLinerLayoutNormal_rll_inset_right,
+                    currElevation
+                )
             insetBottom =
-                ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_inset_bottom, currElevation)
+                ta.getDimensionPixelSize(
+                    R.styleable.RoundLinerLayoutNormal_rll_inset_bottom,
+                    currElevation
+                )
 
-            dx = ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_shadow_dx, 0).toFloat()
-            dy = ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_shadow_dy, 0).toFloat()
+            dx = ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_shadow_dx, 0)
+                .toFloat()
+            dy = ta.getDimensionPixelSize(R.styleable.RoundLinerLayoutNormal_rll_shadow_dy, 0)
+                .toFloat()
 
             ta.recycle()
         }
@@ -69,8 +84,7 @@ class RoundLinerLayoutNormal @JvmOverloads constructor(
     }
 
     private fun applyShadowBackground() {
-        background = ViewUtils.generateBackgroundWithShadow(
-            this,
+        applyShadow(
             shadowBkgColor,
             shadowRadius.toFloat(),
             shadowColor,
