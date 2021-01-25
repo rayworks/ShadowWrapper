@@ -1,11 +1,13 @@
 package com.rayworks.shadowwrapper
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.rayworks.shadowlib.ViewUtils.applyShadow
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -45,6 +47,14 @@ class MainActivity : AppCompatActivity() {
             index %= colors.size
             layout_light.updateShadowBackground(shadowColorValue = colors[index])
         }
+
+        top_text.applyShadow(
+            Color.WHITE,
+            cornerRadiusValue = resources.getDimension(R.dimen.radius_corner),
+            shadowColorValue = resources.getColor(R.color.shadowColor),
+            elevationValue = resources.getDimensionPixelSize(R.dimen.radius),
+            shadowGravity = Gravity.CENTER
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

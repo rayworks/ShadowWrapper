@@ -2,4 +2,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="radius_corner">6dp</dimen>
     <dimen name="elevation">16dp</dimen>
+    <dimen name="radius">8dp</dimen>
 </resources>

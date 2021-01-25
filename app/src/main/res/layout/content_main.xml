@@ -24,7 +24,16 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-        <com.rayworks.shadowlib.RoundLinerLayoutNormal
+        <TextView
+                android:id="@+id/top_text"
+                android:text="@string/text_center"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:textColor="@color/shadowColor"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"/>
+
+        <!--<com.rayworks.shadowlib.RoundLinerLayoutNormal
                 app:rll_elevation="8dp"
                 app:rll_inset_left="8dp"
                 app:rll_inset_right="8dp"
@@ -33,14 +42,9 @@
                 android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="120dp">
-            <TextView
-                    android:text="@string/text_center"
-                    android:layout_margin="8dp"
-                    android:textColor="@color/shadowColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
 
-        </com.rayworks.shadowlib.RoundLinerLayoutNormal>
+
+        </com.rayworks.shadowlib.RoundLinerLayoutNormal>-->
 
         <com.rayworks.shadowlib.RoundLinerLayoutNormal
                 android:descendantFocusability="beforeDescendants"
