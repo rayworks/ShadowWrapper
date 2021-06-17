@@ -1,4 +1,4 @@
-# ShadowWrapper [ ![Download](https://api.bintray.com/packages/crayzhou/maven/ShadowWrapper/images/download.svg?version=0.1.1) ](https://bintray.com/crayzhou/maven/ShadowWrapper/0.1.1/link)
+# ShadowWrapper
 
 A wrapper for implementing View's shadow effect.
 
@@ -8,10 +8,17 @@ Support setting View's shadow attributes (including its color and direction) eas
 Inspired by the Medium article [Take control of view’s shadow — Android](https://medium.com/@ArmanSo/take-control-of-views-shadow-android-c6b35ba573e9).
 
 ## Import to your project
+
 ### Gradle
+
 ```groovy
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
-    implementation 'com.rayworks.shadowlib:shadowlib:0.1.1'
+    implementation 'com.github.rayworks:ShadowWrapper:0.1.2'
 }
 ```
 
